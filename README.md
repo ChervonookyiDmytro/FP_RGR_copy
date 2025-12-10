@@ -17,12 +17,23 @@
 
 
 ## Варіант 2
-<p align="center"><img src="https://github.com/ChervonookyiDmytro/FP_LW4/blob/main/image_2025-09-22_14-13-33.png"></p>
+<p align="center"><img src="https://github.com/ChervonookyiDmytro/FP_RGR/blob/main/Screenshot%202025-12-10%20at%2018.33.27.png"></p>
 
 
 ## Реалізація програми мовою Common Lisp (текст програми).
 ```lisp
-
+ (defun F (i)
+  (labels ((df (x) (coerce x 'double-float)))
+    (cond
+      ((= i 1) (df 1))
+      ((= i 16) (df 2))
+      ((and (>= i 2) (<= i 15))
+       (let ((prev (F (1- i))))
+         (+ (* (df 2) prev) (* (df 5) (sin (df i))))))
+      ((and (>= i 17) (<= i 30))
+       (let ((prev (F (1- i))))
+         (+ (/ prev (df 2)) (* (df 5) (cos (df i))))))
+      (t (error "index ~A out of range" i)))))
 ```
 ### Реалізація тестових утиліт і тестових наборів (текст програми).
 ```lisp
@@ -32,8 +43,7 @@
 ```lisp
 
 ```
-## Порівняння результатів з обчисленням іншими програмними засобами або за
-допомогою калькулятора.
+## Порівняння результатів з обчисленням іншими програмними засобами або за допомогою калькулятора.
 ```lisp
 
 ```
